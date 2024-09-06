@@ -1,0 +1,26 @@
+#!/bin/bash
+#----------------------------------------------------
+# Example SLURM job script to run MPI applications on 
+# TACC's Stampede system.
+# 
+# $Id: job.mpi 1580 2013-01-08 04:10:50Z karl $
+#----------------------------------------------------
+#
+#SBATCH -J backup_to_cdw              # Job name
+#SBATCH -o backup_to_cdw.%j.out       # Name of stdout output file (%j expands to jobId)
+#SBATCH -p normal                 #Queue name
+#SBATCH -N 1                     #Total number of nodes requested (64 cores/node)
+#SBATCH --mail-user=casabona@u.northwestern.edu # Set e-mail address
+#SBATCH --mail-type=all       # mail at beginning and end of job
+#SBATCH -n 1                 # Total number of mpi tasks requested
+#SBATCH -t 48:00:00           # Run time (hh:mm:ss) - 0.5 hours
+#
+#SBATCH -A TG-AST100038       # <-- Allocation name to charge job against
+#
+# Go into the directory containing the executable
+#
+#
+# Launch the MPI executable named "flash4"
+#
+cp * /work2/05351/casabona/stampede2/paper_helium 
+
